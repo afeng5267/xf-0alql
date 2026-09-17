@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>飞行棋 · 人机对战</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-wrap">
+    <header class="game-header">
+      <h1>✈️ 飞行棋</h1>
+      <div class="turn-badge" id="turnBadge">玩家回合</div>
+    </header>
+
+    <div class="game-main">
+      <div class="board-side">
+        <canvas id="board" width="640" height="640"></canvas>
+      </div>
+
+      <aside class="control-panel">
+        <div class="dice-box">
+          <div class="dice" id="dice">-</div>
+          <div class="dice-hint">空格键 或 点击按钮掷骰</div>
+        </div>
+
+        <button id="rollBtn" class="roll-btn">🎲 掷骰子</button>
+
+        <div class="status-box" id="statusBox">点击「掷骰子」开始游戏</div>
+
+        <div class="legend">
+          <div class="legend-title">规则速览</div>
+          <ul>
+            <li>🎲 掷到 <b>6</b> 才能起飞,并可再掷一次</li>
+            <li>💥 踩到对方棋子 → 撞回基地</li>
+            <li>🦘 落在己方颜色格 → 跳进 4 格</li>
+            <li>🏁 4 架飞机全部到达终点即获胜</li>
+            <li>👆 多个棋子可走时,点击棋子选择</li>
+          </ul>
+        </div>
+
+        <button id="restartBtn" class="ghost-btn">↺ 重新开始</button>
+      </aside>
+    </div>
+  </div>
+
+  <!-- 获胜覆盖层 -->
+  <div class="overlay" id="overlay" hidden>
+    <div class="overlay-card">
+      <h2 id="winTitle">🎉 获胜!</h2>
+      <p id="winMsg">恭喜玩家!</p>
+      <button id="againBtn" class="roll-btn">再来一局</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
